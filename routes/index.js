@@ -38,22 +38,22 @@ router.put('/profile/:user_id', (req, res, next) => {
   res.send('PUT /profile/:user_id');
 });
 
-/* GET /forgot-pw - Forgot Password*/
+/* GET /forgot - Forgot Password*/
 router.get('/forgot', (req, res, next) => {
   res.send('GET /forgot');
 });
 
-/* PUT /forgot-pw - Requesting for Forgot Password Link with the email as posting it */
+/* PUT /forgot - Requesting for Forgot Password Link with the email as posting it */
 router.put('/forgot', (req, res, next) => {
   res.send('PUT /forgot');
 });
 
-/* GET /reset-pw - Getting the reset link in index page with a token for an interval of time */
+/* GET /reset/:token - Getting the reset link in index page with a token for an interval of time */
 router.get('/reset/:token', (req, res, next) => {
   res.send('GET /reset/:token');
 });
 
-/* PUT /reset-pw - Updating Password in the database */
+/* PUT /reset/:token - Updating Password in the database */
 router.put('/reset/:token', (req, res, next) => {
   res.send('PUT /reset/:token');
 });
