@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true });
 
-// Routes for the reviews page, Like displaying review, editing, deleting
+// Routes for the reviews page, Like displaying review, editing, deleting (5 functions)
 
 /* GET reviews index of /posts/:id/reviews */
 router.get('/', (req, res, next) => {

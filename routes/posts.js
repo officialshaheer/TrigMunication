@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// Routes will help the navigatiom
+// Routes will help the navigatiom ( 7 routes )
 
 /* GET posts index of /posts */
 router.get('/', (req, res, next) => {
