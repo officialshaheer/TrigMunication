@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+// Routes will help the navigatiom
+
 /* GET posts index of /posts */
 router.get('/', (req, res, next) => {
   res.send('/posts');
