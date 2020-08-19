@@ -15,9 +15,7 @@ router.get('/register', (req, res, next) => {
 });
 
 /* POST /register. Posting values from registration page to database */
-router.post('/register', (req, res, next) => {
-  res.send('POST /register');
-});
+router.post('/register', postRegister);
 
 /* GET /login. Getting login page of user */
 router.get('/login', (req, res, next) => {
