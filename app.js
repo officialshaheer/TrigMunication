@@ -1,9 +1,14 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
+const favicon = require('serve-favicon');
 const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const passport = require('passport');
+const User = require('./models/user');
 
+// require routes
 const indexRouter = require('./routes/index');
 const postsRouter = require('./routes/posts');
 const reviewsRouter = require('./routes/reviews');
@@ -16,10 +21,24 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Configure passport and sessions
+app.use(session({
+	secret: "hand ten dude!",
+	resave: false,
+	saveUninitialized: true
+}));
+
+passport.use(User.createStrategy());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+// Mount routes - Means where the data flow from one to another is defined
 app.use('/', indexRouter);
 app.use('/posts', postsRouter);
 app.use('/posts/:id/reviews', reviewsRouter);

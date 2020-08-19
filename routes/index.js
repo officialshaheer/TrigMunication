@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { postRegister } = require('../controllers/index');
 
 // INDEX ROUTES
 /* GET home page. */
