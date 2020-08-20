@@ -29,8 +29,14 @@ router.get('/login', (req, res, next) => {
 });
 
 /* POST /login. Posting values from user login page to database  */
-router.post('/login', passport.authenticate('local'), (req, res, next) => {
-  res.send('POST /login');
+router.post('/login', passport.authenticate('local', { 
+  successRedirect: '/',
+  failureRedirect: '/login' 
+}));
+/* GET /logout */
+router.get('/logout', (req, res, next) => {
+  req.logout();
+  res.redirect('/');
 });
 
 /* GET /profile. - Display Profile  */
