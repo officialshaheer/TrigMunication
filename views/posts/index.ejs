@@ -1,1 +1,13 @@
 <h1>Posts Index!</h1>
+
+<% posts.forEach(function(post) { %>
+<div>
+<h2> <%= post.title %></h2>
+<div>Price: <%= post.price %></div>
+<div><%= post.description %></div>
+<!-- For to display javascript from database use '-' character in the code like this
+	<div><%- post.description %></div> -->
+<div><%= post.location %></div>
+</div>
+<% }); %>
+
