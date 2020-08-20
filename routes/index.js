@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 const { postRegister } = require('../controllers/index');
 const { errorHandler } = require('../middleware/index');
 // another way of writing the above two lines
@@ -28,7 +29,7 @@ router.get('/login', (req, res, next) => {
 });
 
 /* POST /login. Posting values from user login page to database  */
-router.post('/login', (req, res, next) => {
+router.post('/login', passport.authenticate('local'), (req, res, next) => {
   res.send('POST /login');
 });
 
