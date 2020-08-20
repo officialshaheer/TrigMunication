@@ -15,7 +15,7 @@ author: {
 },
 reviews: [
 	{
-		types: Schema.Types.ObjectId,
+		type: Schema.Types.ObjectId,
 		ref: 'Review'
 	}
 ]

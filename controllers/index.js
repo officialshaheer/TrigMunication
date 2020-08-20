@@ -23,5 +23,9 @@ module.exports = {
  getLogout(req, res, next) {
    req.logout();
    res.redirect('/');
+ },
+
+ newPost(req, res, next) {
+ 	
  }
 }
