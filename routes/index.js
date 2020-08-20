@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const { postRegister } = require('../controllers/index');
+const { errorHandler } = require('../middleware/index');
+// another way of writing the above two lines
+// const { postRegister } = require('../controllers'); - it will find the index.js file in the directory automatically.
+// const { errorHandler } = require('../middleware'); -it will find the index.js file in the directory automatically.
+
 
 // INDEX ROUTES
 /* GET home page. */
@@ -15,7 +20,7 @@ router.get('/register', (req, res, next) => {
 });
 
 /* POST /register. Posting values from registration page to database */
-router.post('/register', postRegister);
+router.post('/register', errorHandler(postRegister));
 
 /* GET /login. Getting login page of user */
 router.get('/login', (req, res, next) => {
