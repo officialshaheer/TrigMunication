@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
-const { postRegister } = require('../controllers/index');
+const { postRegister, postLogin, getLogout } = require('../controllers/index');
 const { errorHandler } = require('../middleware/index');
 // another way of writing the above two lines
 // const { postRegister } = require('../controllers'); - it will find the index.js file in the directory automatically.
@@ -29,15 +28,9 @@ router.get('/login', (req, res, next) => {
 });
 
 /* POST /login. Posting values from user login page to database  */
-router.post('/login', passport.authenticate('local', { 
-  successRedirect: '/',
-  failureRedirect: '/login' 
-}));
+router.post('/login', postLogin);
 /* GET /logout */
-router.get('/logout', (req, res, next) => {
-  req.logout();
-  res.redirect('/');
-});
+router.get('/logout', getLogout);
 
 /* GET /profile. - Display Profile  */
 router.get('/profile', (req, res, next) => {
